@@ -23,8 +23,8 @@
 </p>
 
 <div class="flex gap-2">
-  <a class={[currentPage === 'scope-tab' && 'text-primary underline']} href="/toggle-demo/scope-tab">scope</a>
-  <a class={[currentPage === 'gt-tab' && 'text-primary underline']} href="/toggle-demo/gt-tab">gt</a>
+  <a class={[currentPage === 'scope-tab' && 'text-primary underline']} href="/{page.params.id}/scope-tab">scope</a>
+  <a class={[currentPage === 'gt-tab' && 'text-primary underline']} href="/{page.params.id}/gt-tab">gt</a>
 </div>
 
 <button class="mt-4 rounded border border-gray-300 p-2" onclick={test} type="button"> Click me to test </button>
