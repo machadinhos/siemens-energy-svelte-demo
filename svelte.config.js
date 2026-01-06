@@ -11,6 +11,9 @@ const config = {
     adapter: adapter(),
     alias: {
       $components: 'src/lib/components/index.ts',
+      $state: 'src/lib/state/index.ts',
+      '$components-attachments': 'src/lib/components/attachments/index.ts',
+      $types: 'src/lib/types/index.ts',
     },
   },
 };
