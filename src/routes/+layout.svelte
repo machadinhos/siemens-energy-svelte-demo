@@ -11,6 +11,6 @@
 
 <svelte:head><link href={favicon} rel="icon" /></svelte:head>
 
-<div class="h-screen w-screen bg-gray-500">
+<div class="h-screen w-screen bg-[#191a1c] text-white">
   {@render children()}
 </div>
