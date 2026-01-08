@@ -6,7 +6,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
   return {
     request: {
       id: params.requestId,
-      name: `Reuqest ${params.requestId}`,
+      name: `Request ${params.requestId}`,
     },
   };
 };
