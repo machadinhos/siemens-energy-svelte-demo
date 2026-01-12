@@ -6,10 +6,6 @@
 
   let isToggleEnabled = $state(false);
   let currentPage = $derived(page.url.pathname.split('/')[2]);
-
-  function test() {
-    console.log('test123');
-  }
 </script>
 
 <Toggle bind:enabled={isToggleEnabled}>toggle test</Toggle>
@@ -26,7 +22,5 @@
   <a class={[currentPage === 'scope-tab' && 'text-primary underline']} href="/{page.params.id}/scope-tab">scope</a>
   <a class={[currentPage === 'gt-tab' && 'text-primary underline']} href="/{page.params.id}/gt-tab">gt</a>
 </div>
-
-<button class="mt-4 rounded border border-gray-300 p-2" onclick={test} type="button"> Click me to test </button>
 
 {@render children()}
