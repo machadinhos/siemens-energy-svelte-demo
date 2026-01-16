@@ -8,10 +8,16 @@ export const load: PageServerLoad = async () => {
     {
       id: 1,
       name: 'Request 1',
+      scopeTab: {
+        isNewInstallation: true,
+      },
     },
     {
       id: 2,
       name: 'Request 2',
+      scopeTab: {
+        isNewInstallation: false,
+      },
     },
   ];
 
