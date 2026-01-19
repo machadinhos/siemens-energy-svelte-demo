@@ -2,7 +2,9 @@ export type ServiceResult<T> =
   | { isSuccess: true; data: T; errorMessage: null }
   | { isSuccess: false; data: null; errorMessage: string };
 
-const BASE_URL = 'https://r4c.siemens-energy.cloud/api'; // Adjust based on your environment
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+const BASE_URL = 'https://localhost:7289/api';
 
 export async function apiFetch<T>(
   path: string,

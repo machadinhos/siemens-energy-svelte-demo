@@ -10,7 +10,6 @@
   let { data }: PageProps = $props();
 </script>
 
-<a href="/123">toggle demo</a>
 <button class="block cursor-pointer" onclick={openModal} type="button">test modal</button>
 
 <table>
