@@ -1,21 +1,26 @@
 import type { LayoutServerLoad } from './$types';
-import type { Project } from '$types';
+import { projectsService } from '$lib/services/projects';
 
 export const load: LayoutServerLoad = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 10));
+  // Call your service
+  const resultt = await projectsService.getAllProjects();
+  if (!resultt.isSuccess) {
+    // eslint-disable-next-line no-console
+    console.log('Failed to load projects');
+  }
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      name: 'Project 1',
-    },
-    {
-      id: 2,
-      name: 'Project 2',
-    },
-  ];
+  //dummy sample projects list:
+  const result = {
+    isSuccess: true,
+    data: [
+      { id: 1, name: 'Project Alpha' },
+      { id: 2, name: 'Project Beta' },
+    ],
+    errorMessage: null,
+  };
 
+  // Return the data to the UI (+layout.svelte)
   return {
-    projects,
+    projects: result.data,
   };
 };
