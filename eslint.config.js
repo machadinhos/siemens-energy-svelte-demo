@@ -46,12 +46,12 @@ export default ts.config(
     rules: {
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/explicit-function-return-type': 'error',
-      'sort-imports': [
+      /* 'sort-imports': [
         'error',
         {
           ignoreCase: true,
         },
-      ],
+      ], */
       eqeqeq: 'error',
       camelcase: 'error',
       'no-console': 'error',

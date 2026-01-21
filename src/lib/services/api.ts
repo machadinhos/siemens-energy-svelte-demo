@@ -1,8 +1,8 @@
+import { browser } from '$app/environment';
+
 export type ServiceResult<T> =
   | { isSuccess: true; data: T; errorMessage: null }
   | { isSuccess: false; data: null; errorMessage: string };
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const BASE_URL = 'https://localhost:7289/api';
 
@@ -12,6 +12,10 @@ export async function apiFetch<T>(
   body?: unknown,
 ): Promise<ServiceResult<T>> {
   try {
+    if (!browser) {
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    }
+
     const response = await fetch(`${BASE_URL}/${path}`, {
       method,
       headers: { 'Content-Type': 'application/json' },

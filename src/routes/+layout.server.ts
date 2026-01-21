@@ -1,7 +1,9 @@
 import type { LayoutServerLoad } from './$types';
 import { projectsService } from '$lib/services/projects';
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async ({ depends }) => {
+  depends('app:projects');
+
   const result = await projectsService.getAllProjects();
   if (!result.isSuccess) {
     console.log('Failed to load projects');
