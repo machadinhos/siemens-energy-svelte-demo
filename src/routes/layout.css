@@ -1,14 +1,19 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #ff883e;
-  --color-secondary: #2c2c2b;
-  --color-secondary-dark: #201f1d;
-  --color-background: #3f3d3b;
-  --color-background-dark: #323230;
+  --color-primary: #6750a4;
+  --color-secondary: #f8f5ff;
+  --color-secondary-dark: #efe6ff;
+  --color-background: #fdf8fd;
+  --color-background-dark: #e7e0eb;
   --color-secondary-foreground: #b5b5b5;
+
   --color-error: #eb1400;
   --color-error-light: #ff6f61;
   --color-warning: #c36a2d;
   --color-success: #43a047;
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }

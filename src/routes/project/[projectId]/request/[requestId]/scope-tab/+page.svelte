@@ -4,4 +4,6 @@
   let { data } = $props();
 </script>
 
-<Toggle bind:enabled={data.request.scopeTab.isNewInstallation}>toggle new installation</Toggle>
+<div>
+  <Toggle bind:enabled={data.request.scopeTab.isNewInstallation}>toggle new installation</Toggle>
+</div>

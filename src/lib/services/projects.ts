@@ -1,27 +1,12 @@
-import { apiFetch, type ServiceResult } from './api';
-import type { CountryDto } from '../types/masterData';
+import { apiFetch } from './api';
 import type { Project } from '../types/projects';
 
-let countriesCache: CountryDto[] | null = null;
-
 export const projectsService = {
-  async getCountries(): Promise<ServiceResult<CountryDto[]>> {
-    if (countriesCache) return { isSuccess: true, data: countriesCache, errorMessage: null };
-
-    const res = await apiFetch<CountryDto[]>('Projects/GetCountries');
-    if (res.isSuccess) countriesCache = res.data;
-    return res;
-  },
-
-  getAllProjects(): Promise<ServiceResult<Project[]>> {
+  getAllProjects(): Promise<Project[]> {
     return apiFetch<Project[]>('Projects/GetAllProjects');
   },
 
-  getProjectById(id: number): Promise<ServiceResult<Project>> {
-    return apiFetch<Project>(`Projects/Details/${id}`);
-  },
-
-  async createProject(projectName: string): Promise<ServiceResult<Project>> {
+  async createProject(projectName: string): Promise<Project> {
     return await apiFetch<Project>('Projects/Create', 'POST', {
       id: 0,
       name: projectName,
@@ -30,13 +15,13 @@ export const projectsService = {
       psp: null,
       pkz: null,
       mendix: null,
-      countryId: 780,
+      countryId: 19308,
       regionPB: 'REU',
       regionAW: 'W',
       hz: '50',
       isTest: false,
       currentUser: 'R4C.test@siemens-energy.com',
-      userIds: [166],
+      userIds: [205],
       statusId: 0,
       statusName: '',
       countryName: null,
@@ -50,7 +35,7 @@ export const projectsService = {
     });
   },
 
-  deleteProject(id: number): Promise<ServiceResult<null>> {
-    return apiFetch<null>('Projects/DeleteProjectByIdAsync', 'POST', id);
+  deleteProject(id: number): Promise<void> {
+    return apiFetch<never>('Projects/DeleteProjectByIdAsync', 'POST', id);
   },
 };

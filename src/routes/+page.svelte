@@ -2,6 +2,9 @@
   import { modal } from '$lib/state';
   import { TestModal } from '$lib/components/modals';
   import type { PageProps } from './$types';
+  import Table from '$lib/components/Table.svelte';
+  import type { Project } from '$types';
+  import Button from '$lib/components/Button.svelte';
 
   const openModal = (): void => {
     modal.open(TestModal, { extraParams: { text: 'abc' } });
@@ -10,25 +13,17 @@
   let { data }: PageProps = $props();
 </script>
 
-<button class="block cursor-pointer" onclick={openModal} type="button">test modal</button>
+<Button class="mb-7" onclick={openModal}>Open Modal</Button>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    {#each data.projects as project (project.id)}
-      <tr>
-        <td>
-          <a href="/project/{project.id}">{project.id}</a>
-        </td>
-        <td>
-          {project.name}
-        </td>
-      </tr>
-    {/each}
-  </tbody>
-</table>
+{#snippet projectIdRender(project: Project)}
+  <a href="/project/{project.id}">{project.id}</a>
+{/snippet}
+
+<Table
+  headers={[
+    { key: 'id', label: 'Id', snippet: projectIdRender },
+    { key: 'name', label: 'Name' },
+    { key: 'status', label: 'Status' },
+  ]}
+  rows={data.projects}
+/>

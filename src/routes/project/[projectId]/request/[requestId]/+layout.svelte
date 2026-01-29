@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import Tabs from '$lib/components/Tabs.svelte';
 
   let { children, data } = $props();
 
@@ -12,12 +13,7 @@
     return formatter.format(currentNumber);
   });
 
-  const onSaveClick = async () => {
-    await fetch('/api/save', {
-      method: 'POST',
-      body: JSON.stringify(data.request),
-    });
-  };
+  const onSaveClick = async () => {};
 </script>
 
 <label>
@@ -31,9 +27,14 @@
 
 <button onclick={onSaveClick}>Save</button>
 
-<div class="mt-3 flex gap-2">
-  <a class={[currentPage === 'scope-tab' && 'text-primary underline']} href="./scope-tab">scope</a>
-  <a class={[currentPage === 'gt-tab' && 'text-primary underline']} href="./gt-tab">gt</a>
-</div>
+<Tabs
+  class="mb-3"
+  items={[
+    { id: 'scope-tab', label: 'Scope', href: './scope-tab' },
+    { id: 'gt-tab', label: 'GT', href: './gt-tab' },
+    { id: 'digi-tab', label: 'Digi', href: './digi-tab' },
+  ]}
+  selected={currentPage ?? ''}
+/>
 
 {@render children()}
