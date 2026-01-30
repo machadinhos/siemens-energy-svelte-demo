@@ -15,13 +15,13 @@
 </script>
 
 <div class="flex {className}">
-  {#each items as item}
+  {#each items as item (item.id)}
     <a
-      href={item.href}
       class={[
         selected === item.id && 'rounded-t-md border-0 border-b-2 border-b-primary bg-background-dark',
         'inline-flex cursor-pointer items-center border-b border-b-background-dark p-2 focus:outline-none',
       ]}
+      href={item.href}
     >
       <span class="text-sm sm:text-base"> {item.label} </span>
     </a>

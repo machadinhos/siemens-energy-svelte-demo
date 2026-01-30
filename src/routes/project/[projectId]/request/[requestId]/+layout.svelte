@@ -12,8 +12,6 @@
     if (!formatter) formatter = new Intl.NumberFormat(navigator.language);
     return formatter.format(currentNumber);
   });
-
-  const onSaveClick = async () => {};
 </script>
 
 <label>
@@ -24,8 +22,6 @@
 
 <p>Id: {data.request.id}</p>
 <p>Name: {data.request.name}</p>
-
-<button onclick={onSaveClick}>Save</button>
 
 <Tabs
   class="mb-3"

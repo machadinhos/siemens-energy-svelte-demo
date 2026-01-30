@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
   import type { ClassValue } from 'svelte/elements';
 
   type Props = {
@@ -20,6 +19,7 @@
     ' cursor-pointer rounded-2xl p-1 [corner-shape:squircle]',
     className,
   ]}
+  {onclick}
   {type}
 >
   {@render children()}</button

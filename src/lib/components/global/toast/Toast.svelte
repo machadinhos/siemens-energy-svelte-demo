@@ -103,7 +103,8 @@
       aria-label="Close notification"
       onclick={toast.destroy}
       type="button"
-    > close
+    >
+      close
     </button>
   {/if}
   <div class="px-6">

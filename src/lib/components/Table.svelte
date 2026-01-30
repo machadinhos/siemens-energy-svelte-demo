@@ -1,4 +1,4 @@
-<script lang="ts" generics="T">
+<script generics="T" lang="ts">
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -16,15 +16,15 @@
 <table class="table-auto">
   <thead class="bg-primary text-white">
     <tr>
-      {#each headers as header}
+      {#each headers as header (header.key)}
         <th>{header.label}</th>
       {/each}
     </tr>
   </thead>
   <tbody>
-    {#each rows as row}
+    {#each rows as row, index (index)}
       <tr class="odd:bg-secondary-dark even:bg-secondary">
-        {#each headers as col}
+        {#each headers as col (col.key)}
           <td>
             {#if col.snippet}
               {@render col.snippet(row)}
