@@ -1,11 +1,11 @@
-import type { CountryDto } from './masterData.ts';
-
 export type Project = {
   id: number;
   projectID: string;
   name: string;
   status: string;
-  country?: CountryDto;
+  country?: {
+    name: string;
+  };
   regionPB: string;
   regionAW: string;
   hz: string;
@@ -18,5 +18,4 @@ export type Project = {
   dateLastStatusChange?: string; // DateTime ISO string
   userIds: number[];
   requestsCount: number;
-  // For Checklist/Request Header scenarios
 };
