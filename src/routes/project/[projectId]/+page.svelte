@@ -13,7 +13,7 @@
 
 <Table
   headers={[
-    { key: 'id', label: 'Id', snippet: requestIdRender },
+    { label: 'Id', snippet: requestIdRender },
     { key: 'name', label: 'Name' },
   ]}
   rows={data.requests}

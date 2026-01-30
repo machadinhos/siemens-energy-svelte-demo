@@ -4,24 +4,13 @@
 
   let { children, data } = $props();
 
-  let formatter: Intl.NumberFormat | undefined;
-
   let currentPage = $derived(page.url.pathname.split('/').at(-1));
-  let currentNumber = $state(0);
-  let formattedNumber = $derived.by(() => {
-    if (!formatter) formatter = new Intl.NumberFormat(navigator.language);
-    return formatter.format(currentNumber);
-  });
 </script>
-
-<label>
-  number input
-  <input type="number" bind:value={currentNumber} />
-</label>
-<p>formatted number: {formattedNumber ?? 0}</p>
 
 <p>Id: {data.request.id}</p>
 <p>Name: {data.request.name}</p>
+
+<hr class="my-3 border-x border-gray-200" />
 
 <Tabs
   class="mb-3"

@@ -1,35 +1,36 @@
 <script generics="T" lang="ts">
   import type { Snippet } from 'svelte';
 
-  type Props = {
-    headers: {
-      key: keyof NoInfer<T>;
-      label: string;
-      snippet?: Snippet<[NoInfer<T>]>;
-    }[];
+  type Header<T> = {
+    label: string;
+  } & ({ key: keyof NoInfer<T>; snippet?: never } | { snippet: Snippet<[NoInfer<T>]>; key?: never });
+
+  type Props<T> = {
+    headers: Header<T>[];
     rows: T[];
   };
 
-  let { headers, rows }: Props = $props();
+  let { headers, rows }: Props<T> = $props();
 </script>
 
 <table class="table-auto">
   <thead class="bg-primary text-white">
     <tr>
-      {#each headers as header (header.key)}
-        <th>{header.label}</th>
+      {#each headers as { label, key } (key)}
+        <th>{label}</th>
       {/each}
     </tr>
   </thead>
   <tbody>
     {#each rows as row, index (index)}
       <tr class="odd:bg-secondary-dark even:bg-secondary">
-        {#each headers as col (col.key)}
+        {#each headers as { key, snippet } (key)}
           <td>
-            {#if col.snippet}
-              {@render col.snippet(row)}
+            {#if snippet}
+              {@render snippet(row)}
             {:else}
-              {row[col.key]}
+              <!-- eslint-disable-next-line @typescript-eslint/no-non-null-assertion -->
+              {row[key!]}
             {/if}
           </td>
         {/each}

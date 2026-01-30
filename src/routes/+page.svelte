@@ -6,11 +6,11 @@
   import type { Project } from '$types';
   import Button from '$lib/components/Button.svelte';
 
+  let { data }: PageProps = $props();
+
   const openModal = (): void => {
     modal.open(TestModal, { extraParams: { text: 'abc' } });
   };
-
-  let { data }: PageProps = $props();
 </script>
 
 <Button class="mb-7" onclick={openModal}>Open Modal</Button>
@@ -21,7 +21,7 @@
 
 <Table
   headers={[
-    { key: 'id', label: 'Id', snippet: projectIdRender },
+    { label: 'Id', snippet: projectIdRender },
     { key: 'name', label: 'Name' },
     { key: 'status', label: 'Status' },
   ]}

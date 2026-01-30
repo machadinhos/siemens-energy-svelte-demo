@@ -13,6 +13,7 @@ export const load: LayoutServerLoad = async ({ params }) => {
   };
 
   return {
+    tooltip: '',
     request,
   };
 };
