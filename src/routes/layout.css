@@ -16,5 +16,7 @@
 }
 
 body {
+  background: var(--color-background);
+  color: black;
   font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
