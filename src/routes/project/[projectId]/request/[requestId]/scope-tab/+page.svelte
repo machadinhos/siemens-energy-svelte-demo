@@ -1,8 +1,6 @@
 <script lang="ts">
-  import Icon from '$lib/components/svg-icons/Icon.svelte';
-  import { InfoIcon } from '$lib/components/svg-icons/index.js';
-  import Toggle from '$lib/components/Toggle.svelte';
-  import Tooltip from '$lib/components/Tooltip.svelte';
+  import { InfoIcon, Icon } from '$components-svg-icons';
+  import { Tooltip, Toggle } from '$components-ui';
 
   let { data } = $props();
 </script>

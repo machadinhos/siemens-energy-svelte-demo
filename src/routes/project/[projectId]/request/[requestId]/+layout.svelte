@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import Tabs from '$lib/components/Tabs.svelte';
+  import { Tabs } from '$components-ui';
 
   let { children, data } = $props();
 

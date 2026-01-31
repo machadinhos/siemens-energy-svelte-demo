@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { projectsService } from '$lib/services/projects';
+import { projectsService } from '$services';
 
 export const load: PageServerLoad = async ({ depends }) => {
   depends('app:projects');

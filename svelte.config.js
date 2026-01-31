@@ -14,9 +14,12 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      $components: 'src/lib/components/index.ts',
-      $state: 'src/lib/state/index.ts',
+      '$components-ui': 'src/lib/components/ui/index.ts',
       '$components-attachments': 'src/lib/components/attachments/index.ts',
+      '$components-svg-icons': 'src/lib/components/svg-icons/index.ts',
+      '$components-modals': 'src/lib/components/modals/index.ts',
+      $state: 'src/lib/state/index.ts',
+      $services: 'src/lib/services/index.ts',
       $types: 'src/lib/types/index.ts',
     },
   },

@@ -1,12 +1,10 @@
 <script lang="ts">
-  import { modal } from '$lib/state';
-  import { TestModal } from '$lib/components/modals';
-  import type { PageProps } from './$types';
-  import Table from '$lib/components/Table.svelte';
+  import { modal } from '$state';
+  import { TestModal } from '$components-modals';
+  import { Table, Button } from '$components-ui';
   import type { Project } from '$types';
-  import Button from '$lib/components/Button.svelte';
 
-  let { data }: PageProps = $props();
+  let { data } = $props();
 
   const openModal = (): void => {
     modal.open(TestModal, { extraParams: { text: 'abc' } });

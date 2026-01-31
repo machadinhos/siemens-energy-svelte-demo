@@ -1,7 +1,7 @@
 <script lang="ts">
   import { invalidate } from '$app/navigation';
-  import { projectsService } from '$lib/services/projects';
-  import { type ModalInstance } from '$lib/state';
+  import { projectsService } from '$services';
+  import { type ModalInstance } from '$state';
 
   type Params = {
     text: string;

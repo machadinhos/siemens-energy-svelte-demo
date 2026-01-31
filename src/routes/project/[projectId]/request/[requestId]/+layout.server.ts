@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import type { Request } from '$lib/types';
+import type { Request } from '$types';
 
 export const load: LayoutServerLoad = async ({ params }) => {
   await new Promise((resolve) => setTimeout(resolve, 10));

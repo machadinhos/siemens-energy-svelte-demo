@@ -1,2 +1,2 @@
-export * from './requests';
-export * from './projects';
+export type * from './requests';
+export type * from './projects';

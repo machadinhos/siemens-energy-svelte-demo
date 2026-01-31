@@ -1,10 +1,9 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import Table from '$lib/components/Table.svelte';
-  import type { PageProps } from './$types';
+  import { Table } from '$components-ui';
   import type { Request } from '$types';
 
-  let { data }: PageProps = $props();
+  let { data } = $props();
 </script>
 
 {#snippet requestIdRender(request: Request)}

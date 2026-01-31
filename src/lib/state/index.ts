@@ -1,2 +1,2 @@
 export * from './modal.svelte';
-export * from './toasts.svelte';
+export { toasts } from './toasts.svelte';
